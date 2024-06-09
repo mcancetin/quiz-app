@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .heading-xl {
+    @apply text-[9rem] font-medium text-midnight-blue;
+  }
+
+  .heading-lg {
+    @apply text-[4rem] font-medium text-midnight-blue;
+  }
+
+  .heading-md {
+    @apply text-4xl font-medium text-midnight-blue;
+  }
+
+  .heading-sm {
+    @apply text-[1.75rem] font-medium text-midnight-blue;
+  }
+}
