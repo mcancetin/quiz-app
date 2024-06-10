@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         "bright-violet": "#A729F5",
+        "bright-violet-hover": "#F6E7FF",
         "midnight-blue": "#313E51",
         "steel-blue": "#3B4D66",
         "slate-gray": "#626C7F",
@@ -22,5 +23,6 @@ export default {
       },
     },
   },
+  darkMode: "class",
   plugins: [],
 };
