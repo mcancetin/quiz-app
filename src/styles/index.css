@@ -3,19 +3,27 @@
 @tailwind utilities;
 
 @layer components {
+  .wrapper {
+    @apply max-w-[1160px] mx-auto px-6 md:px-10 lg:px-0;
+  }
+
   .heading-xl {
-    @apply text-[9rem] font-medium text-midnight-blue;
+    @apply text-[9rem] font-medium text-midnight-blue dark:text-pure-white;
   }
 
   .heading-lg {
-    @apply text-[4rem] font-medium text-midnight-blue;
+    @apply text-[2.5rem] lg:text-[4rem] font-medium text-midnight-blue dark:text-pure-white;
   }
 
   .heading-md {
-    @apply text-4xl font-medium text-midnight-blue;
+    @apply text-[1.25rem] lg:text-4xl font-medium text-midnight-blue dark:text-pure-white;
   }
 
   .heading-sm {
-    @apply text-[1.75rem] font-medium text-midnight-blue;
+    @apply text-[1.125rem] lg:text-[1.75rem] font-medium text-midnight-blue dark:text-pure-white;
+  }
+
+  .body-text {
+    @apply text-sm leading-[150%] text-slate-gray dark:text-pale-cornflower-blue;
   }
 }

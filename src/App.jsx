@@ -2,7 +2,10 @@ import { lazy, Suspense } from "react";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
+import Container from "src/components/layout/container";
+
 const Home = lazy(() => import("src/pages/Home"));
+const Html = lazy(() => import("src/pages/Html"));
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { element: <Home />, index: true },
-      { path: "html", element: <h1>HTML</h1> },
+      { path: "html", element: <Html /> },
       { path: "css", element: <h1>css</h1> },
       { path: "javascript", element: <h1>javascript</h1> },
       { path: "accessibility", element: <h1>accessibility</h1> },
@@ -27,13 +30,4 @@ const router = createBrowserRouter([
 
 export default function App() {
   return <RouterProvider router={router} />;
-}
-
-function Container({ children }) {
-  return (
-    <div className="min-h-screen bg-no-repeat bg-cover bg-[url('/assets/images/pattern-background-desktop-light.svg')]">
-      <header>header</header>
-      <main>{children}</main>
-    </div>
-  );
 }
