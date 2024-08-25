@@ -7,9 +7,14 @@ import { QuestionContext } from "src/context/QuestionContext";
 import Button from "src/components/common/button";
 import Option from "src/components/common/option";
 import QuestionProgressBar from "src/components/common/question-progress-bar";
+import useQuiz from "src/hooks/useQuiz";
 
-function Question({ question, options, answer, handleNext, hasMoreQuestions, length, currentQuestion }) {
+function Question({ quizTitle }) {
   const { setCorrectAnswerCount } = useContext(QuestionContext);
+
+  const { currentQuestion, hasMoreQuestions, nextQuestion } = useQuiz(quizTitle);
+
+  const { question, options, answer } = currentQuestion;
 
   const [selected, setSelected] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -27,44 +32,43 @@ function Question({ question, options, answer, handleNext, hasMoreQuestions, len
   };
 
   const handleNextQuestion = () => {
-    handleNext();
+    nextQuestion();
     setSelected(null);
     setIsAnswered(false);
   };
 
   return (
     <>
-      <p className="heading-md mb-6">{question}</p>
-
-      <QuestionProgressBar currentQuestion={currentQuestion} length={length} />
-
-      <div className="flex flex-col gap-3 pb-8">
-        {options.map((option, index) => (
-          <Option
-            key={index}
-            index={index}
-            label={option}
-            onClick={() => handleSelect(index)}
-            selected={selected}
-            rightOne={option === answer}
-            isAnswered={isAnswered}
-          />
-        ))}
+      <div className="lg:col-start-1 lg:flex flex-col justify-between">
+        <p className="heading-md mb-6">{question}</p>
+        <QuestionProgressBar />
       </div>
 
-      <Button disabled={selected === null} onClick={isAnswered ? handleNextQuestion : handleValidate}>
-        {isAnswered ? (hasMoreQuestions ? "Next Question" : "Finish Quiz") : "Submit Answer"}
-      </Button>
+      <div className="lg:col-start-2 lg:row-start-1 lg:row-end-3">
+        <div className="flex flex-col gap-3 pb-8">
+          {options.map((option, index) => (
+            <Option
+              key={index}
+              index={index}
+              label={option}
+              onClick={() => handleSelect(index)}
+              selected={selected}
+              rightOne={option === answer}
+              isAnswered={isAnswered}
+            />
+          ))}
+        </div>
+
+        <Button disabled={selected === null} onClick={isAnswered ? handleNextQuestion : handleValidate}>
+          {isAnswered ? (hasMoreQuestions ? "Next Question" : "Finish Quiz") : "Submit Answer"}
+        </Button>
+      </div>
     </>
   );
 }
 
 Question.propTypes = {
-  question: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  answer: PropTypes.string.isRequired,
-  handleNext: PropTypes.func.isRequired,
-  hasMoreQuestions: PropTypes.bool.isRequired,
+  quizTitle: PropTypes.string,
 };
 
 export default Question;

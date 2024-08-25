@@ -2,21 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-function Icon({ color, path, className }) {
+function Icon({ path, className }) {
   const imgContainerClasses = classNames(
     "rounded-xl group-hover:scale-125 transition-all",
     {
-      "bg-[#fff1e9]": path === "html",
-      "bg-[#E0FDEF]": path === "css",
-      "bg-[#EBF0FF]": path === "javascript",
-      "bg-[#F6E7FF]": path === "accessibility",
+      "bg-[#fff1e9]": path === "HTML",
+      "bg-[#E0FDEF]": path === "CSS",
+      "bg-[#EBF0FF]": path === "JavaScript",
+      "bg-[#F6E7FF]": path === "Accessibility",
     },
     className
   );
 
   return (
     <div className={imgContainerClasses}>
-      <img className="p-2 " src={`/assets/images/icon-${path}.svg`} alt="" />
+      <img className="p-2 " src={`/assets/images/icon-${path.toLowerCase()}.svg`} alt="" />
     </div>
   );
 }

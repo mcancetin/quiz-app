@@ -1,40 +1,51 @@
 import { useContext } from "react";
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { QuestionContext } from "src/context/QuestionContext";
 
 import Icon from "src/components/common/icon";
 import Button from "src/components/common/button";
 
-function Result({ length }) {
-  const location = useLocation();
+import useCategory from "src/hooks/useCategory";
 
-  const pathname = location.pathname.substring(1);
-  const capitalized = pathname.charAt(0).toUpperCase() + pathname.substring(1);
+function Result() {
+  const navigate = useNavigate();
+  const { category } = useCategory();
 
-  const { correctAnswerCount } = useContext(QuestionContext);
+  const capitalized = category.charAt(0).toUpperCase() + category.substring(1);
+
+  const { correctAnswerCount, setCurrentQuestionIndex, totalQuestionCount, setCorrectAnswerCount } =
+    useContext(QuestionContext);
+
+  const handlePlayAgain = () => {
+    setCurrentQuestionIndex(0);
+    setCorrectAnswerCount(0);
+    navigate("/");
+  };
 
   return (
-    <>
-      <div className="text-[40px] text-steel-blue dark:text-white mb-10">
+    <div className="lg:flex lg:gap-32">
+      <div className="heading-lg text-steel-blue dark:text-white mb-10">
         <span className="font-light">Quiz completed</span>
         <br />
         <span className="font-medium">You scored...</span>
       </div>
 
-      <div className="bg-white dark:bg-steel-blue flex flex-col items-center gap-4 p-8 rounded-xl mb-3">
-        <div className="flex items-center gap-4">
-          <Icon path={pathname} className="w-10" />
-          <span className="heading-sm">{capitalized}</span>
+      <div className="flex-1">
+        <div className="bg-white dark:bg-steel-blue flex flex-col items-center gap-4 p-8 rounded-xl mb-3 lg:mb-8">
+          <div className="flex items-center gap-4">
+            <Icon path={category} className="w-10" />
+            <span className="heading-sm">{capitalized}</span>
+          </div>
+
+          <div className="text-[88px] text-steel-blue dark:text-white">{correctAnswerCount}</div>
+          <div className=" text-slate-gray dark:text-pale-cornflower-blue">out of {totalQuestionCount}</div>
         </div>
 
-        <div className="text-[88px] text-steel-blue dark:text-white">{correctAnswerCount}</div>
-        <div className=" text-slate-gray dark:text-pale-cornflower-blue">out of {length}</div>
+        <Button onClick={handlePlayAgain}>Play Again</Button>
       </div>
-
-      <Button>Play Again</Button>
-    </>
+    </div>
   );
 }
 

@@ -1,11 +1,11 @@
 // src/hooks/useQuiz.js
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { QuestionContext } from "src/context/QuestionContext";
 
 import data from "src/data";
 
 const useQuiz = (quizTitle) => {
-  const { currentQuestionIndex, setCurrentQuestionIndex } = useContext(QuestionContext);
+  const { currentQuestionIndex, setCurrentQuestionIndex, setTotalQuestionCount } = useContext(QuestionContext);
 
   const { questions = [] } = data.quizzes.find((quiz) => quiz.title === quizTitle);
 
@@ -14,6 +14,12 @@ const useQuiz = (quizTitle) => {
   };
 
   const currentQuestion = questions[currentQuestionIndex];
+
+  useEffect(() => {
+    if (currentQuestionIndex === 0) {
+      setTotalQuestionCount(questions.length);
+    }
+  }, []);
 
   return {
     lengthOfQuestions: questions.length,

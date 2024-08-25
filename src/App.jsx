@@ -5,7 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Container from "src/components/layout/container";
 
 const Home = lazy(() => import("src/pages/Home"));
-const Html = lazy(() => import("src/pages/Html"));
+const Quiz = lazy(() => import("src/pages/Quiz"));
 
 const router = createBrowserRouter([
   {
@@ -19,11 +19,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { element: <Home />, index: true },
-      { path: "html", element: <Html /> },
-      { path: "css", element: <h1>css</h1> },
-      { path: "javascript", element: <h1>javascript</h1> },
-      { path: "accessibility", element: <h1>accessibility</h1> },
-      { path: "*", element: <div>Not found</div> },
+      { path: "quiz", element: <Quiz /> },
     ],
   },
 ]);

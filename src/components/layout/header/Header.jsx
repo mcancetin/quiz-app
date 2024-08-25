@@ -1,19 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 import ThemeSwitcher from "src/components/common/theme-switcher";
-import { useLocation } from "react-router-dom";
 import Icon from "src/components/common/icon";
+import useCategory from "src/hooks/useCategory";
 
-function Header(props) {
-  const location = useLocation();
+function Header() {
+  const { category } = useCategory();
 
-  const pathname = location.pathname.substring(1);
-  const capitalized = pathname.charAt(0).toUpperCase() + pathname.substring(1);
+  const capitalized = category.charAt(0).toUpperCase() + category.substring(1);
 
   return (
-    <header className="flex justify-between pt-6 pb-14">
+    <header className="flex justify-between pt-6 pb-14 lg:pt-24 lg:pb-24">
       <div className="flex items-center gap-4">
-        <Icon path={pathname} className="w-10" />
+        <Icon path={category} className="w-10" />
         <span className="heading-sm">{capitalized}</span>
       </div>
       <ThemeSwitcher />

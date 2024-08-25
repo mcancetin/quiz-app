@@ -3,40 +3,39 @@ import NavigationItem from "src/components/common/navigation-item";
 
 const pages = [
   {
-    path: "html",
+    path: "HTML",
     label: "HTML",
   },
   {
-    path: "css",
+    path: "CSS",
     label: "CSS",
   },
   {
-    path: "javascript",
+    path: "JavaScript",
     label: "Javascript",
   },
   {
-    path: "accessibility",
+    path: "Accessibility",
     label: "Accessibility",
   },
 ];
 
 function Home(props) {
   return (
-    <>
-      <h1 className="heading-lg font-light">
-        Welcome to the <strong className="font-medium">Frontend Quiz!</strong>
-      </h1>
+    <div className="xl:flex gap-32">
+      <div className="xl:max-w-[45ch]">
+        <h1 className="heading-lg font-light lg:pb-12">
+          Welcome to the <strong className="font-medium">Frontend Quiz!</strong>
+        </h1>
+        <span className="body-text italic inline-block pb-10">Pick a subject to get started.</span>
+      </div>
 
-      <span className="body-text italic inline-block pb-10">
-        Pick a subject to get started.
-      </span>
-
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 flex-1">
         {pages.map((page) => (
           <NavigationItem key={page.path} path={page.path} label={page.label} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

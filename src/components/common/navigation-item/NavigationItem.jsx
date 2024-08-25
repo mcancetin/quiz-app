@@ -6,7 +6,7 @@ import Icon from "src/components/common/icon";
 
 function NavigationItem({ path, label }) {
   return (
-    <a href={`/${path}`}>
+    <a href={`/quiz?category=${path}`}>
       <Card className="flex items-center gap-8 group">
         <Icon path={path} />
         <span className="heading-sm">{label}</span>
