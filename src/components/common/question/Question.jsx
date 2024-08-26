@@ -1,5 +1,5 @@
 // src/components/common/question.js
-import React, { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { QuestionContext } from "src/context/QuestionContext";
