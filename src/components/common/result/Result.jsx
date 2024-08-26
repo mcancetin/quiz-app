@@ -24,6 +24,20 @@ function Result() {
     navigate("/");
   };
 
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.code === "Enter") {
+        handlePlayAgain();
+      }
+    };
+
+    document.addEventListener("keypress", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress);
+    };
+  }, []);
+
   return (
     <div className="lg:flex lg:gap-32">
       <div className="heading-lg text-steel-blue dark:text-white mb-10">

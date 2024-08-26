@@ -37,6 +37,22 @@ function Question({ quizTitle }) {
     setIsAnswered(false);
   };
 
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.code === "Enter" && !isAnswered) {
+        handleValidate();
+      } else {
+        handleNextQuestion();
+      }
+    };
+
+    document.addEventListener("keypress", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress); // Clean up on unmount
+    };
+  }, [isAnswered]);
+
   return (
     <>
       <div className="lg:col-start-1 lg:flex flex-col justify-between">
