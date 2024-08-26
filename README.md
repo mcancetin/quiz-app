@@ -22,8 +22,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [https://www.frontendmentor.io/solutions/frontend-quiz-app-solution-8xDt7xAjRP](https://www.frontendmentor.io/solutions/frontend-quiz-app-solution-8xDt7xAjRP)
+- Live Site URL: [https://quiz-app-sandy-two.vercel.app/](https://quiz-app-sandy-two.vercel.app/)
 
 ### Built with
 
