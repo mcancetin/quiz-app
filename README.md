@@ -19,3 +19,21 @@ Users should be able to:
 - See hover and focus states for all interactive elements on the page
 - Navigate the entire app only using their keyboard
 - **Bonus**: Change the app's theme between light and dark
+
+### Links
+
+- Solution URL: []()
+- Live Site URL: []()
+
+### Built with
+
+- React
+- Tailwind CSS
+- Mobile-first workflow
+
+## Author
+
+- GitHub - [@mcancetin](https://github.com/mcancetin)
+- Frontend Mentor - [@mcancetin](https://www.frontendmentor.io/profile/mcancetin)
+- Twitter - [@mccdev\_](https://twitter.com/mccdev_)
+- LinkedIn - [Muhammed Can Çetin](https://www.linkedin.com/in/mcancetin/)
