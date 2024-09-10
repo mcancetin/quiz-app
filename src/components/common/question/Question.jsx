@@ -39,19 +39,46 @@ function Question({ quizTitle }) {
 
   useEffect(() => {
     const handleKeyPress = (event) => {
-      if (event.code === "Enter" && !isAnswered) {
+      if (event.code === "Enter" && isFinite(selected)) {
         handleValidate();
-      } else {
+      }
+
+      if (isAnswered) {
         handleNextQuestion();
       }
     };
 
+    const handleSelectWithKey = (event) => {
+      switch (event.code) {
+        case "KeyA":
+          handleSelect(0);
+          break;
+
+        case "KeyB":
+          handleSelect(1);
+          break;
+
+        case "KeyC":
+          handleSelect(2);
+          break;
+
+        case "KeyD":
+          handleSelect(3);
+          break;
+
+        default:
+          return;
+      }
+    };
+
     document.addEventListener("keypress", handleKeyPress);
+    document.addEventListener("keypress", handleSelectWithKey);
 
     return () => {
-      document.removeEventListener("keypress", handleKeyPress); // Clean up on unmount
+      document.removeEventListener("keypress", handleKeyPress);
+      document.removeEventListener("keypress", handleSelectWithKey);
     };
-  }, [isAnswered]);
+  }, [isAnswered, selected]);
 
   return (
     <>

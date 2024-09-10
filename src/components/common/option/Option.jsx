@@ -45,7 +45,7 @@ function Option({ label, index, onClick, selected, rightOne, isAnswered }) {
   });
 
   return (
-    <Card onClick={() => onClick(index)} onFocus={() => onClick(index)} className={cardClasses} tabIndex={index + 1}>
+    <Card onClick={() => onClick(index)} onFocus={() => onClick(index)} className={cardClasses}>
       <span className={spanClasses}>{letter}</span>
       <span className="text-midnight-blue heading-sm">{label}</span>
       <div className={iconClasses}>
