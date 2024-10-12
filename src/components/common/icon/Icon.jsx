@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -22,9 +21,8 @@ function Icon({ path, className }) {
 }
 
 Icon.propTypes = {
-  color: PropTypes.string,
-  label: PropTypes.string,
-  classNames: PropTypes.string,
+  path: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Icon;

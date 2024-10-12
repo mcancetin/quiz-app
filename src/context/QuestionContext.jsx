@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
 const QuestionContext = createContext({
   currentQuestionIndex: 0,
@@ -28,6 +29,10 @@ const QuestionProvider = ({ children }) => {
       {children}
     </QuestionContext.Provider>
   );
+};
+
+QuestionProvider.propTypes = {
+  children: PropTypes.element,
 };
 
 export { QuestionContext, QuestionProvider };

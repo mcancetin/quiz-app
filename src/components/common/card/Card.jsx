@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -13,7 +12,8 @@ function Card({ children, className, ...props }) {
 }
 
 Card.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.element,
+  className: PropTypes.string,
 };
 
 export default Card;

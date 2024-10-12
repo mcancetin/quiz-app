@@ -1,4 +1,3 @@
-import React from "react";
 import NavigationItem from "src/components/common/navigation-item";
 
 const pages = [
@@ -20,7 +19,7 @@ const pages = [
   },
 ];
 
-function Home(props) {
+function Home() {
   return (
     <div className="xl:flex gap-32">
       <div className="xl:max-w-[45ch]">

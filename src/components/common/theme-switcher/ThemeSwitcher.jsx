@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classNames from "classnames";
 
 const initialTheme = localStorage.getItem("theme") || "light";
@@ -10,8 +10,7 @@ function ThemeSwitcher() {
 
   if (
     localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
+    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     document.documentElement.classList.add("dark");
   } else {
@@ -32,26 +31,13 @@ function ThemeSwitcher() {
   return (
     <div className="flex gap-4 items-center">
       <div>
-        <img
-          src={`/assets/images/icon-sun-${
-            theme === "light" ? "dark" : "light"
-          }.svg`}
-          alt=""
-        />
+        <img src={`/assets/images/icon-sun-${theme === "light" ? "dark" : "light"}.svg`} alt="" />
       </div>
-      <div
-        className="relative w-12 h-7 bg-bright-violet rounded-full cursor-pointer"
-        onClick={handleToggle}
-      >
+      <div className="relative w-12 h-7 bg-bright-violet rounded-full cursor-pointer" onClick={handleToggle}>
         <span className={switchClasses}></span>
       </div>
       <div>
-        <img
-          src={`/assets/images/icon-moon-${
-            theme === "light" ? "dark" : "light"
-          }.svg`}
-          alt=""
-        />
+        <img src={`/assets/images/icon-moon-${theme === "light" ? "dark" : "light"}.svg`} alt="" />
       </div>
     </div>
   );

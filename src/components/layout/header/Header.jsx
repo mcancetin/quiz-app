@@ -1,4 +1,3 @@
-import React from "react";
 import ThemeSwitcher from "src/components/common/theme-switcher";
 import Icon from "src/components/common/icon";
 import useCategory from "src/hooks/useCategory";
