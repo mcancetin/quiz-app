@@ -5,7 +5,7 @@ import QuestionStepText from "src/components/common/question-step-text";
 import Question from "src/components/common/question";
 import Result from "src/components/common/result";
 
-function Quiz(props) {
+function Quiz() {
   const { category } = useCategory();
 
   const { currentQuestion, hasMoreQuestions } = useQuiz(category);
